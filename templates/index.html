@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="device-width, initial-scale=1.0">
-<title>The HTML Basics</title>
-<!-- Add CSS  -->
-<link rel="stylesheet" type="text/css" href="static/main.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <header>
     <h1>Welcome to The Basics of Web Development</h1>
 </header>
@@ -46,5 +38,5 @@
 <footer>
     <p>&copy; 2025 Magnus Rosenberg</p>
 </footer>
-</body>
-</html>
+
+{% endblock %}
