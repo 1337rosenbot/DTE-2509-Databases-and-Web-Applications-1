@@ -11,6 +11,7 @@ __pycache__/
 # Virtuelle miljøer
 env/
 venv/
+.venv/
 
 # Flask-spesifikke ting
 instance/
