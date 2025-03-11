@@ -20,6 +20,7 @@ instance/
 # Konfigurasjonsfiler med sensitive data
 *.env
 .env
+.venv/
 
 # Logg- og debug-filer
 *.log
