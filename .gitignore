@@ -1,0 +1,40 @@
+# Generelle systemfiler
+.DS_Store
+Thumbs.db
+
+# Python-kompilerte filer
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtuelle miljøer
+env/
+venv/
+
+# Flask-spesifikke ting
+instance/
+*.sqlite3
+*.db
+
+# Konfigurasjonsfiler med sensitive data
+*.env
+.env
+
+# Logg- og debug-filer
+*.log
+
+# IDE- og editorfiler
+.vscode/
+.idea/
+*.swp
+
+# Node og frontend (hvis du eksperimenterer med npm eller liknende)
+node_modules/
+
+# Mac/Windows søppelfiler
+._*
+
+# Eventuelle filer du genererer til testing eller midlertidige formål
+temp/
+tmp/
