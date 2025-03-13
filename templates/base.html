@@ -6,12 +6,30 @@
 <title>The HTML Basics</title>
 <!-- Add CSS  -->
 <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap.min.css') }}">
+<link rel="stylesheet" href="static/main.css">
 </head>
 <body>
+    <header>
+        <h1>Welcome to The Basics of Web Development</h1>
+    </header>
+    <nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">HTML Basics</a></li>
+        <li><a href="{{ url_for('web_dev') }}">HTML in Web Development</a></li>
+        <li><a href="{{ url_for('intro_flask') }}">Introduction to Flask</a></li>
+        <li><a href="{{ url_for('books') }}">Recommended Books</a></li>
+    </ul>
+    </nav>
+    <main>
     {% block content %}
 
     <!--Content from other HTMLs-->
 
     {% endblock %}
+    
+    </main>
+    <footer>
+        <p>&copy; 2025 Magnus Rosenberg</p>
+    </footer>
 </body>
 </html>
