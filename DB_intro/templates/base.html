@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="device-width, initial-scale=1.0">
+<title>The HTML Basics</title>
+<!-- Add CSS  -->
+<link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap.min.css') }}">
+
+<!--Google Fonts: Poppins-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700&display=swap" \
+          rel="stylesheet">
+<!--Custom CSS-->
+<link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+    <main>
+        {% block content %}
+    
+        <!--Content from other HTMLs-->
+    
+        {% endblock %}
+    
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Magnus Rosenberg</p>
+        </div>
+    </footer>
+</body>
+</html>
