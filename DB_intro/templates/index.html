@@ -2,7 +2,7 @@
 {% block content %}
 
 <section id="html">
-        <table class="table">
+        <table class="table text-center">
             <thead>
                 <tr>
                     <th>Title</th>
@@ -22,5 +22,8 @@
                 {% endfor %}
             </tbody>
         </table>
+        <form class="text-center" action="{{ url_for('create') }}">
+            <input type="submit" class="btn-primary"   value="Add Movie">
+        </form>
     </section>
 {% endblock %}

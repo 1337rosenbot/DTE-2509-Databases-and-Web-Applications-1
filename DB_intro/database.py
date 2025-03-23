@@ -45,4 +45,13 @@ class DataBase():
     # Preventing  SQL Injection (Prepared Statements)
     # Ensuring the right data structure
     # Consistency with multiple parameters (making the "connector"-api more predictable)
+
+
+    def create_movie(self, data):
+        sql = """
+            INSERT INTO film (tittel, år, land, sjanger, alder, tid, pris)
+            VALUES (%s, %s, %s, %s, %s, %s, %s);
+        """
+        self.cursor.execute(sql, data)
+        return self.cursor.fetchone()
     

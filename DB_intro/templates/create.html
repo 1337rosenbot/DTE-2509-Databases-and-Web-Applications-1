@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Add Movie</h1>
+<h1 class="movieTitle">Add Movie</h1>
 
 <form action="{{ url_for('create') }}" method="post">
     <table class="table">
@@ -35,8 +35,10 @@
         </tr>
     </table>
 
-    <input type="submit" name="create_button" value="Add" class="btn-primary">
-    <button type="button" class="btn-secondary" onclick="history.back()">Cancel</button>
+    <div class="text-center">
+        <input type="submit" name="create_button" value="Add" class="btn-primary">
+        <button type="button" class="btn-secondary" onclick="history.back()">Cancel</button>
+    </div>
 </form>
 
 {% endblock %}
