@@ -1,17 +1,17 @@
-DROP TABLE IF EXISTS 'film';
-CREATE TABLE 'film' (
-'fnr' int NOT NULL AUTO_INCREMENT;
-'tittel' varchar(50) DEFAULT NULL;
-'år' int DEFAULT NULL;
-'land' varchar(50) DEFAULT NULL;
-'sjanger' varchar(50) DEFAULT NULL;
-'alder' int DEFAULT NULL;
-'tid' int DEFAULT NULL;
-'pris' decimal(6,2) DEFAULT NULL;
-PRIMARY KEY ('fnr')
+DROP TABLE IF EXISTS `film`;
+CREATE TABLE `film` (
+`fnr` int NOT NULL AUTO_INCREMENT,
+`tittel` varchar(50) DEFAULT NULL,
+`år` int DEFAULT NULL,
+`land` varchar(50) DEFAULT NULL,
+`sjanger` varchar(50) DEFAULT NULL,
+`alder` int DEFAULT NULL,
+`tid` int DEFAULT NULL,
+`pris` decimal(6,2) DEFAULT NULL,
+PRIMARY KEY (`fnr`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO 'film' VALUES
+INSERT INTO `film` VALUES
 (1, 'Casablanca', '1942', 'USA', 'Drama', 15, 102, 149),
 (2, 'Fort Apache', '1948', 'USA', 'Western', 15, 127, NULL),
 (3, 'Apocalypse Now', '1979', 'USA', 'Action', 18, 155, 123),

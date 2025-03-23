@@ -7,14 +7,17 @@ load_dotenv()
 
 class DataBase():
     def __init__(self):
-        self.mysqlConnection = mysql.connector.connect(
-            host="localhost", #port 3306
-            user="root",
-            password=os.getenv("DB_PASSWORD"),
-            database="dte_2509"
-        )
+        self.mysqlConnection = None
+        self.cursor = None
+        
     
     def __enter__(self):
+        self.mysqlConnection = mysql.connector.connect(
+            host="localhost", #port 3306
+            user="flaskproject",
+            password=os.getenv("DB_PASSWORD"),
+            database="db_info"
+        )
         try:
             self.cursor = self.mysqlConnection.cursor()
             return self
@@ -22,9 +25,14 @@ class DataBase():
             print(f"Error while connecting to MYSql: {error}")
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.mysqlConnection.commit()
-        self.cursor.close()
-        self.mysqlConnection.close()
+        if self.cursor:
+            self.cursor.close()
+        if self.mysqlConnection:
+            if exc_type is None:
+                self.mysqlConnection.commit()  # commit only if no exception
+            else:
+                self.mysqlConnection.rollback()  # rollback if an exception occurred
+            self.mysqlConnection.close()
 
     def getAllData(self):
         self.cursor.execute("SELECT * FROM film;")
