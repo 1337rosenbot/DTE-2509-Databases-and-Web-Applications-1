@@ -12,7 +12,7 @@
                 <td><p class="fs-5"><strong>Country: </strong>{{ movie.country }}</p></td>
                 <td><p class="fs-5"><strong>Age Rating: </strong>{{ movie.age_rating }}</p></td>
                 <td><p class="fs-5"><strong>Duration: </strong>{{ movie.duration }}</p></td>
-                <td><p class="fs-5"><strong>Price: </strong>{{ movie.price }}</p></td>
+                <td><p class="fs-5"><strong>Price: </strong>{% if movie.price %}{{ movie.price }} NOK{% else %}Not Available{% endif %}</p></td>
             </tr>
         </tbody>
     </table>
