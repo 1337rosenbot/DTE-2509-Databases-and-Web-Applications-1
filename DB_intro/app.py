@@ -11,11 +11,7 @@ def home():
     with DataBase() as db:
         movies = [Movie(*movie) for movie in db.getAllData()]
 
-
-
     return render_template('index.html', movies=movies)
-
-
 
 
 @app.route("/movie/<int:movie_id>")
@@ -29,7 +25,6 @@ def movie_info(movie_id):
             return "Movie not found.", 404 # Not found error code
 
     return render_template("movie.html", movie=movie)
-
 
 
 if __name__ == '__main__':
