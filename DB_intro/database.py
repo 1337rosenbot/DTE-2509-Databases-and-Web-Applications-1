@@ -38,4 +38,11 @@ class DataBase():
         self.cursor.execute("SELECT * FROM film;")
         return self.cursor.fetchall()
     
+    def getMovieById(self, movie_id):
+        self.cursor.execute("SELECT * FROM film WHERE fnr= %s", (movie_id, )) # Note that the single parameter is made as a tuple
+        return self.cursor.fetchone()
+    
+    # Preventing  SQL Injection (Prepared Statements)
+    # Ensuring the right data structure
+    # Consistency with multiple parameters (making the "connector"-api more predictable)
     

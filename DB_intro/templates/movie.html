@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section id="html">
+    <table class="table">
+        <thead>
+            <tr><th><h2 class="movieTitle">{{ movie.title }}</h2></th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><p class="fs-5"><strong>Year: </strong>{{ movie.year }}</p></td>
+                <td><p class="fs-5"><strong>Country: </strong>{{ movie.country }}</p></td>
+                <td><p class="fs-5"><strong>Age Rating: </strong>{{ movie.age_rating }}</p></td>
+                <td><p class="fs-5"><strong>Duration: </strong>{{ movie.duration }}</p></td>
+                <td><p class="fs-5"><strong>Price: </strong>{{ movie.price }}</p></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn"><a href="{{ url_for('home') }}">Back to movie list</a></button>
+</section>
+
+{% endblock %}

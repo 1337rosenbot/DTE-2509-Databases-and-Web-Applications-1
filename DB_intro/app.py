@@ -18,6 +18,17 @@ def home():
 
 
 
+@app.route("/movie/<int:movie_id>")
+def movie_info(movie_id):
+    with DataBase() as db:
+        movie_data = db.getMovieById(movie_id)
+    
+        if movie_data:
+            movie = Movie(*movie_data)
+        else:
+            return "Movie not found.", 404 # Not found error code
+
+    return render_template("movie.html", movie=movie)
 
 
 
