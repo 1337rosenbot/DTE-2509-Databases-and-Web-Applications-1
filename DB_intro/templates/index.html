@@ -17,7 +17,7 @@
                     <td><a href="{{ url_for('movie_info', movie_id=movie.id) }}">{{ movie.title }}</a></td>
                     <td>{{ movie.year }}</td>
                     <td>{{ movie.age_rating }}</td>
-                    <td>{{ movie.price }}</td>
+                    <td>{% if movie.price %}{{ movie.price }} NOK{% else %}Not Available{% endif %}</td>
                 </tr>
                 {% endfor %}
             </tbody>
