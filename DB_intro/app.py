@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from database import DataBase
 from movie import Movie
 import secrets
@@ -10,6 +10,13 @@ app.secret_key = secrets.token_urlsafe(16)
 def home():
     with DataBase() as db:
         movies = [Movie(*movie) for movie in db.getAllData()]
+
+        #deleted_movie = session["deleted_movie"]
+        deleted_movie = session.pop("deleted_movie", None) # Remove after retriving
+
+        if deleted_movie is not None:
+            flash(f"The movie {deleted_movie} was deleted")
+
 
     return render_template('index.html', movies=movies)
 
@@ -49,6 +56,23 @@ def create():
         return redirect(url_for('home'))
 
     return render_template('create.html')
+
+@app.route("/delete/<int:movie_id>", methods = ["POST"])
+def delete(movie_id):
+
+    with DataBase() as db:
+        movie_data = db.getMovieById(movie_id)
+
+        if movie_data:
+            movie = Movie(*movie_data)
+            db.delete_movie(movie_id)
+
+            session["deleted_movie"] = movie.title # Store in session
+            return redirect( url_for('home') )
+        
+        else:
+            return "Movie not found.", 404 # Not found error code
+
 
 if __name__ == '__main__':
     app.run(debug=True)

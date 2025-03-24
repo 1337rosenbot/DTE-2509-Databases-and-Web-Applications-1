@@ -54,3 +54,7 @@ class DataBase():
         self.cursor.execute(sql, data)
         return self.cursor.fetchone()
     
+    def delete_movie(self, movie_id):
+        self.cursor.execute("DELETE FROM film WHERE fnr = %s;", (movie_id, ))
+        return #self.cursor.fetchone()
+    
