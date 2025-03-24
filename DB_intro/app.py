@@ -40,7 +40,7 @@ def create():
         duration = req["duration"]
         price = req["duration"]
 
-        # Add to db
+        # Make dict to transfer data to db
         data = (title, year, country, genre, age_rating, duration, price)
         
         with DataBase() as db:
